@@ -29,8 +29,6 @@ function ReposResults({ list }: ReposResultsProps) {
     </Card>
   ));
 
-  console.log('REPOSRESULTS');
-
   return (
     <Card.Group as="section" itemsPerRow={3} stackable>
       {items}

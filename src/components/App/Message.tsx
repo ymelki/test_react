@@ -7,8 +7,6 @@ interface MessageProps {
 }
 
 function Message({ total }: MessageProps) {
-  console.log('MESSAGE');
-
   return (
     <MessageSemanticUI>
       La recherche a retourné {total} résultats
