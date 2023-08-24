@@ -54,7 +54,8 @@ function SearchBar({ setDoQuery }: SearchBarProps) {
 
     // je dis que je suis en train de soumettre le formulaire
     // je lui envoie la saisie : search
-    setDoQuery(search);
+    // on supprime les espaces non-nécessaires de la saisie (trim)
+    setDoQuery(search.trim());
   };
 
   return (

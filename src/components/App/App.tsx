@@ -43,7 +43,7 @@ function App() {
       } catch (error) {
         console.error(error);
       } finally {
-        setDoQuery(null);
+        // setDoQuery(null);
       }
     }
 
@@ -63,7 +63,7 @@ function App() {
       </header>
 
       <SearchBar setDoQuery={setDoQuery} />
-      <Message total={total} />
+      <Message total={total} doQuery={doQuery} />
       <ReposResults list={repos} />
     </div>
   );
