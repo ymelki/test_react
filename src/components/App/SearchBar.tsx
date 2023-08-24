@@ -49,6 +49,8 @@ function SearchBar() {
     console.log(search);
   };
 
+  console.log('SEARCHBAR');
+
   return (
     <Segment>
       <Form role="search" onSubmit={handleSubmit}>
