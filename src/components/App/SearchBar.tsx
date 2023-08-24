@@ -28,6 +28,10 @@ function SearchBar() {
   */
   const [search, setSearch] = useState('');
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <Segment>
       <Form role="search">
@@ -39,7 +43,7 @@ function SearchBar() {
             aria-label="Rechercher un dépôt"
             role="searchbox"
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={handleChange}
           />
         </Form.Field>
       </Form>
