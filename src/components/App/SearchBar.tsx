@@ -25,6 +25,12 @@ function SearchBar() {
     pour avertir notre utilisateur → `value`
     3. on va surveiller la saisie utilisateur pour modifier
     la valeur de l'état → `onChange`
+
+    Je le fais ici car :
+    - l'information « l'utilisateur modifie le champ » n'est pas utile ailleurs
+    - ça évite le re-rendu de `<App />` (et de tous ses enfants) à chaque saisie
+
+    > en règle générale, on gère son formulaire LOCALEMENT
   */
   const [search, setSearch] = useState('');
 
