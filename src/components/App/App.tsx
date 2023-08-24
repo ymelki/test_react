@@ -13,7 +13,10 @@ import './App.scss';
 
 function App() {
   // État : est-ce que le formulaire est soumis ?
-  const [isSubmit, setIsSubmit] = useState(false);
+  // si le formulaire est soumis, je vais donner la valeur de mon
+  // champ à ma variable
+  // → si j'ai un string c'est que j'ai soumis mon formulaire
+  const [doQuery, setDoQuery] = useState<string | null>(null);
   // État : pour stocker les résultats de l'API
   const [total, setTotal] = useState(0);
   const [repos, setRepos] = useState([]);
@@ -31,7 +34,7 @@ function App() {
         // on peut directement décomposer `response`
         // et assigner les résultats dans `data`
         const { data } = await axios.get(
-          'https://api.github.com/search/repositories?q=react'
+          `https://api.github.com/search/repositories?q=${doQuery}`
         );
         // console.log(data);
         // on stocke les résultats dans nos variable d'état
@@ -40,15 +43,15 @@ function App() {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsSubmit(false);
+        setDoQuery(null);
       }
     }
 
     // je n'appelle ma fonction uniquement à la soumission du formulaire
-    if (isSubmit) {
+    if (doQuery) {
       getRepos();
     }
-  }, [isSubmit]);
+  }, [doQuery]);
   // je veux appeler mon effet (`getRepos`, mon appel API) uniquement
   // au montage (1er rendu, premier affichage du composant)
   // pour viser cette phase du cycle de vie, j'indique `[]`
@@ -59,7 +62,7 @@ function App() {
         <Image src={logo} alt="Logo GitHub" size="small" centered />
       </header>
 
-      <SearchBar setIsSubmit={setIsSubmit} />
+      <SearchBar setDoQuery={setDoQuery} />
       <Message total={total} />
       <ReposResults list={repos} />
     </div>

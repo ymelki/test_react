@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Form, Input, Segment } from 'semantic-ui-react';
 
 interface SearchBarProps {
-  setIsSubmit: React.Dispatch<React.SetStateAction<boolean>>;
+  setDoQuery: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-function SearchBar({ setIsSubmit }: SearchBarProps) {
+function SearchBar({ setDoQuery }: SearchBarProps) {
   /*
     Le plus important dans une application React, c'est son ÉTAT :
     l'affichage va être modifié en fonction de celui-ci
@@ -53,7 +53,8 @@ function SearchBar({ setIsSubmit }: SearchBarProps) {
     console.log(search);
 
     // je dis que je suis en train de soumettre le formulaire
-    setIsSubmit(true);
+    // je lui envoie la saisie : search
+    setDoQuery(search);
   };
 
   return (
