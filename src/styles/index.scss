@@ -2,7 +2,7 @@
 @use 'variables' as v;
 
 body {
-  margin: 0;
+  background: v.$color-bg;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
