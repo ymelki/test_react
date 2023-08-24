@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import Message from './Message';
 import ReposResults from './ReposResults';
 
+import repos from '../../data/repos';
 import logo from '../../assets/images/logo-github.png';
 
 import './App.scss';
@@ -17,7 +18,7 @@ function App() {
 
       <SearchBar />
       <Message total={123456} />
-      <ReposResults />
+      <ReposResults list={repos.items} />
     </div>
   );
 }
