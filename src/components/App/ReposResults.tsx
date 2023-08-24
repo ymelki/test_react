@@ -1,4 +1,4 @@
-import { Card } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 function ReposResults() {
   const data = [
@@ -536,18 +536,29 @@ function ReposResults() {
     },
   ];
 
-  const items = data.map((repos) => (
-    <Card
-      key={repos.id}
-      image={repos.owner.avatar_url}
-      header={repos.name}
-      meta={repos.owner.login}
-      description={repos.description}
-    />
+  const items = data.map((repo) => (
+    // on a une prop `as` pour définir la balise HTML qui
+    // sera générée → pratique pour la sémantique !
+    <Card key={repo.id} as="article">
+      <Image src={repo.owner.avatar_url} wrapped ui={false} />
+
+      <Card.Content>
+        <Card.Header as="h2">{repo.name}</Card.Header>
+        <Card.Meta as="h3">{repo.owner.login}</Card.Meta>
+        <Card.Description as="p">{repo.description}</Card.Description>
+      </Card.Content>
+
+      <Card.Content extra>
+        <a href={repo.html_url} target=" _blank" rel="noopener noreferrer">
+          <Icon name="github alternate" />
+          Voir sur GitHub
+        </a>
+      </Card.Content>
+    </Card>
   ));
 
   return (
-    <Card.Group itemsPerRow={3} stackable>
+    <Card.Group as="section" itemsPerRow={3} stackable>
       {items}
     </Card.Group>
   );
