@@ -17,7 +17,7 @@ function App() {
       </header>
 
       <SearchBar />
-      <Message total={123456} />
+      <Message total={repos.total_count} />
       <ReposResults list={repos.items} />
     </div>
   );
