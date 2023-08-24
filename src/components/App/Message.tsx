@@ -2,10 +2,14 @@
 // je renomme mon import grâce à `as`
 import { Message as MessageSemanticUI } from 'semantic-ui-react';
 
-function Message() {
+interface MessageProps {
+  total: number;
+}
+
+function Message({ total }: MessageProps) {
   return (
     <MessageSemanticUI>
-      La recherche a retourné XXXXX résultats
+      La recherche a retourné {total} résultats
     </MessageSemanticUI>
   );
 }

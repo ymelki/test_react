@@ -16,7 +16,7 @@ function App() {
       </header>
 
       <SearchBar />
-      <Message />
+      <Message total={123456} />
       <ReposResults />
     </div>
   );
