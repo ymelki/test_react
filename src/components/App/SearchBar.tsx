@@ -38,9 +38,20 @@ function SearchBar() {
     setSearch(event.target.value);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // event.preventDefault(); // Semantic UI le fait directement avec `<Form />`
+
+    // j'affiche mon intention
+    console.log(
+      'je veux faire un appel API pour rechercher la saisie utilisateur'
+    );
+    // ma saisie utilisateur est stockée dans mon état `search`
+    console.log(search);
+  };
+
   return (
     <Segment>
-      <Form role="search">
+      <Form role="search" onSubmit={handleSubmit}>
         <Form.Field>
           <Input
             icon="search"
